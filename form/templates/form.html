@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Mail Checker</h1>
+<br>
+<p>A tool to check whether an email address exists.</p>
+
+
+{% if success %}
+<div class="alert alert-success" role="alert">  {{ success }} </div>
+{% elif catch_all %}
+<div class="alert alert-danger" role="alert">{{ catch_all }}</div>    
+
+{% elif unknown %}
+<div class="alert alert-danger" role="alert">{{ unknown }}</div> 
+
+{% elif Error %}
+<div class="alert alert-danger" role="alert">{{ Error }}</div>
+
+{% elif disposable %}
+<div class="alert alert-danger" role="alert">{{ disposable }}</div>
+
+{% elif invalid %}
+<div class="alert alert-danger" role="alert">{{ invalid }}</div>
+
+{% elif no_field %}
+<div class="alert alert-danger" role="alert"> {{ no_field }} </div>
+{% endif %}
+
+
+<form method="POST" action="{% url 'form' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="form-group col-6">
+        <label>Email:</label>
+        <input type="text" name="email" class="form-control">
+      </div>
+      <div class="">
+        
+        <button type="submit" class="btn btn-primary">Search</button>
+        <div>
+      </form>
+
+
+  {% endblock %}
+
