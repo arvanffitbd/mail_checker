@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<h1>Verify Your Product Key!!</h1>
+        <form action="/verify/"  method="GET" >
+        <input type="text" name = "key">
+        <input type="submit"value="verify"/>
+        </form>
+        <br>
+        {{message}}
+
+{% endblock %}

@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Form
+from .models import ip
+
+admin.site.register(Form)
+admin.site.register(ip)
